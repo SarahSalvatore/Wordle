@@ -1,0 +1,12 @@
+// Reset
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%; // Font-size 1em = 10px
+}
