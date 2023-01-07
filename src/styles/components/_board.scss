@@ -1,0 +1,19 @@
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 1.5rem;
+
+  .letter {
+    justify-self: stretch;
+    align-self: stretch;
+    text-align: center;
+  }
+}
