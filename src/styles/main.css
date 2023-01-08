@@ -14,12 +14,12 @@ body {
 }
 
 header {
-  margin: 1rem auto;
+  margin: 0 auto 1rem;
 }
 
 h1 {
   color: white;
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.5rem;
@@ -39,8 +39,8 @@ section {
   grid-template-columns: 1fr;
   row-gap: 0.6rem;
   aspect-ratio: 1;
-  max-height: 50dvh;
-  max-width: 50dvw;
+  max-height: 300px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -55,7 +55,7 @@ section {
   border: 1px solid #676767;
   color: white;
   display: flex;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: regular;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ section {
   align-items: center;
   justify-content: center;
   max-width: 60dvw;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
 }
 
 .keyboard-row {
@@ -80,8 +80,8 @@ section {
   margin-bottom: 1rem;
 }
 
-.key {
-  aspect-ratio: 1;
+.key,
+.large-key {
   background-color: white;
   border-radius: 2px;
   color: #041b2d;
@@ -89,13 +89,23 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
   font-weight: 700;
-  width: 38px;
-  margin: 0 0.5rem;
+  margin: 0 0.4rem;
 }
 
-.key:hover {
-  box-shadow: rgba(50, 157, 156, 0.5) 0px 8px 15px;
+.key {
+  aspect-ratio: 1;
+  font-size: 1.6rem;
+  width: 35px;
+}
+
+.large-key {
+  font-size: 1.2rem;
+  width: 75px;
+  padding: 0 0.5rem;
+}
+
+.key:hover,
+.large-key:hover {
   color: #329d9c;
 }/*# sourceMappingURL=main.css.map */

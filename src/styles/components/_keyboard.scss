@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   max-width: 60dvw;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
 }
 
 .keyboard-row {
@@ -18,8 +18,8 @@
   margin-bottom: 1rem;
 }
 
-.key {
-  aspect-ratio: 1;
+.key,
+.large-key {
   background-color: $text;
   border-radius: 2px;
   color: $background;
@@ -27,13 +27,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
   font-weight: $bold;
-  width: 38px;
-  margin: 0 0.5rem;
+  margin: 0 0.4rem;
 }
 
-.key:hover {
-  box-shadow: rgb(50, 157, 156, 0.5) 0px 8px 15px;
+.key {
+  aspect-ratio: 1;
+  font-size: $ls-key;
+  width: 35px;
+}
+
+.large-key {
+  font-size: $ls-lrg-key;
+  width: 75px;
+  padding: 0 0.5rem;
+}
+
+.key:hover,
+.large-key:hover {
   color: $blue-green;
 }
