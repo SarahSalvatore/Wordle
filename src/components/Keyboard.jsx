@@ -1,10 +1,37 @@
-import React from "react";
-import { keyboard } from "../data/keyboard";
+import React, { useCallback, useEffect, useContext } from "react";
 import Key from "./Key";
+import { boardContext } from "../App";
+import { keyboard } from "../data/keyboard";
+import { acceptedKeys } from "../data/keyboard";
 
 const Keyboard = () => {
+  const { onPlayerLetter, onPlayerEnter, onPlayerDelete } =
+    useContext(boardContext);
+
+  const handleKeyPress = useCallback((event) => {
+    if (event.key === "Enter") {
+      onPlayerEnter();
+    } else if (event.key === "Backspace" || event.key === "Delete") {
+      onPlayerDelete();
+    } else {
+      acceptedKeys.forEach((letter) => {
+        if (event.key === letter) {
+          onPlayerLetter(letter.toUpperCase());
+        }
+      });
+    }
+  });
+
+  useEffect(() => {
+    // Listens for keydown events
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
   return (
-    <div className="keyboard">
+    <div className="keyboard" onKeyDown={handleKeyPress}>
       <div className="keyboard-row">
         {keyboard[0].map((key) => {
           return <Key key={key} className="key" letter={key} />;

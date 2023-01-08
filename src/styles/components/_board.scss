@@ -38,3 +38,15 @@ section {
     aspect-ratio: 1;
   }
 }
+
+#correct {
+  background-color: $blue-green;
+}
+
+#almost {
+  background-color: $purple;
+}
+
+#incorrect {
+  background-color: $background;
+}

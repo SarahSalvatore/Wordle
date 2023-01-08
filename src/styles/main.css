@@ -27,6 +27,7 @@ h1 {
 
 footer {
   background-color: black;
+  height: 50px;
 }
 
 section {
@@ -63,6 +64,18 @@ section {
   align-self: stretch;
   text-align: center;
   aspect-ratio: 1;
+}
+
+#correct {
+  background-color: #329d9c;
+}
+
+#almost {
+  background-color: #8a5082;
+}
+
+#incorrect {
+  background-color: #041b2d;
 }
 
 .keyboard {

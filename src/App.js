@@ -12,6 +12,8 @@ function App() {
   // Board initial state is set to the empty default board
   const [board, setBoard] = useState(defaultBoard);
 
+  const correctWord = "right";
+
   // Player's initial position on the board is set to row 0 letter 0
   const [currentPlay, setCurrentPlay] = useState({
     rowPosition: 0,
@@ -67,6 +69,7 @@ function App() {
             onPlayerLetter,
             onPlayerEnter,
             onPlayerDelete,
+            correctWord,
           }}
         >
           <Board />
