@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  margin: 0 auto 1rem;
+  margin: 1rem auto 1rem;
 }
 
 h1 {
@@ -29,7 +29,25 @@ h1 {
   letter-spacing: 0.5rem;
 }
 
+p,
+a {
+  font-weight: $regular;
+  color: $text;
+  font-size: 0.8rem;
+  transition: 0.6s;
+  letter-spacing: 0.05rem;
+}
+
+a:hover {
+  color: $blue-green;
+}
+
 footer {
   background-color: $footer;
-  height: 50px;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }

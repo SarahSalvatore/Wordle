@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import Footer from "./components/Footer";
-import { defaultBoard } from "./data/words";
+import { defaultBoard } from "./data/defaultBoard";
 import "./styles/main.css";
 
 export const boardContext = createContext();
