@@ -1,0 +1,39 @@
+// Keyboard
+
+@use "../base/colours" as *;
+@use "../base/typography" as *;
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 60dvw;
+  margin: 2rem auto;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.key {
+  aspect-ratio: 1;
+  background-color: $text;
+  border-radius: 2px;
+  color: $background;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: $bold;
+  width: 38px;
+  margin: 0 0.5rem;
+}
+
+.key:hover {
+  box-shadow: rgb(50, 157, 156, 0.5) 0px 8px 15px;
+  color: $blue-green;
+}

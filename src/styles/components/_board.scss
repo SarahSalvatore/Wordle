@@ -1,19 +1,40 @@
+// Board
+
+@use "../base/colours" as *;
+@use "../base/typography" as *;
+
+section {
+  max-width: 100dvw;
+}
+
 .board {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: 1fr;
-  row-gap: 1.5rem;
+  row-gap: 0.6rem;
+  aspect-ratio: 1;
+  max-height: 50dvh;
+  max-width: 50dvw;
+  margin: 0 auto;
 }
 
 .row {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 1.5rem;
+  column-gap: 0.4rem;
 
   .letter {
+    border: 1px solid $outline;
+    color: $text;
+    display: flex;
+    font-size: $ls-letters;
+    font-weight: regular;
+    justify-content: center;
+    align-items: center;
     justify-self: stretch;
     align-self: stretch;
     text-align: center;
+    aspect-ratio: 1;
   }
 }

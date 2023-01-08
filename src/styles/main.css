@@ -3,29 +3,99 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  background-color: #041b2d;
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
+}
+
+header {
+  margin: 1rem auto;
+}
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
+footer {
+  background-color: black;
+}
+
+section {
+  max-width: 100dvw;
 }
 
 .board {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: 1fr;
-  row-gap: 1.5rem;
+  row-gap: 0.6rem;
+  aspect-ratio: 1;
+  max-height: 50dvh;
+  max-width: 50dvw;
+  margin: 0 auto;
 }
 
 .row {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(5, 1fr);
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  -moz-column-gap: 0.4rem;
+       column-gap: 0.4rem;
 }
 .row .letter {
+  border: 1px solid #676767;
+  color: white;
+  display: flex;
+  font-size: 2.8rem;
+  font-weight: regular;
+  justify-content: center;
+  align-items: center;
   justify-self: stretch;
   align-self: stretch;
   text-align: center;
+  aspect-ratio: 1;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 60dvw;
+  margin: 2rem auto;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.key {
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 2px;
+  color: #041b2d;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  width: 38px;
+  margin: 0 0.5rem;
+}
+
+.key:hover {
+  box-shadow: rgba(50, 157, 156, 0.5) 0px 8px 15px;
+  color: #329d9c;
 }/*# sourceMappingURL=main.css.map */
