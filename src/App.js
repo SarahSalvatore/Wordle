@@ -68,12 +68,7 @@ function App() {
         letterPosition: 0,
       });
     } else {
-      console.log(wordGuess);
-      setCurrentPlay({
-        rowPosition: currentPlay.rowPosition + 1,
-        letterPosition: 0,
-      });
-      alert("Not Found");
+      alert("Not a word");
     }
 
     if (wordGuess === correctWord) {
