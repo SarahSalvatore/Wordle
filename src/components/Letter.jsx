@@ -2,13 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { boardContext } from "../App";
 
 const Letter = ({ position, value }) => {
-  const {
-    board,
-    correctWord,
-    currentPlay,
-    disabledLetters,
-    setDisabledLetters,
-  } = useContext(boardContext);
+  const { board, correctWord, currentPlay, setDisabledLetters } =
+    useContext(boardContext);
 
   const letter = board[value][position];
   const lowerCaseLetter = letter.toLowerCase();
