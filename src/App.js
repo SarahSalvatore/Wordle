@@ -1,9 +1,10 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Header from "./components/Header";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import Footer from "./components/Footer";
 import { defaultBoard } from "./data/defaultBoard";
+import { generateWordSet } from "./data/wordSet";
 import "./styles/main.css";
 
 export const boardContext = createContext();
@@ -12,6 +13,12 @@ function App() {
   // Board initial state is set to the empty default board
   const [board, setBoard] = useState(defaultBoard);
 
+  // Represents bank of available words - inital state is empty Set
+  const [wordBank, setWordBank] = useState(new Set());
+
+  // Keeps track of incorrect letters guessed so they can be grayed out on onscreen keyboard
+  const [disabledLetters, setDisabledLetters] = useState([]);
+
   const correctWord = "right";
 
   // Player's initial position on the board is set to row 0 letter 0
@@ -19,6 +26,13 @@ function App() {
     rowPosition: 0,
     letterPosition: 0,
   });
+
+  // UseEffect to generate new word from word bank
+  useEffect(() => {
+    generateWordSet().then((words) => {
+      setWordBank(words.wordSet);
+    });
+  }, []);
 
   // Player moves
   // Adds letter to current board and then updates the current board position
@@ -36,11 +50,35 @@ function App() {
   const onPlayerEnter = () => {
     // Cannot enter if player is not on the last letter position
     if (currentPlay.letterPosition !== 5) return;
-    // If player presses enter on the last letter of the row, go to the next row
-    setCurrentPlay({
-      rowPosition: currentPlay.rowPosition + 1,
-      letterPosition: 0,
-    });
+
+    // Convert current word try to string
+    const wordGuess = board[currentPlay.rowPosition].join("").toLowerCase();
+
+    // let wordGuess = "";
+
+    // for (let i = 0; i < 5; i++) {
+    //   wordGuess += board[currentPlay.rowPosition][i].toLowerCase();
+    // }
+
+    // Check if word guess is in the bank
+    if (wordBank.has(wordGuess)) {
+      // If player presses enter on the last letter of the row, go to the next row
+      setCurrentPlay({
+        rowPosition: currentPlay.rowPosition + 1,
+        letterPosition: 0,
+      });
+    } else {
+      console.log(wordGuess);
+      setCurrentPlay({
+        rowPosition: currentPlay.rowPosition + 1,
+        letterPosition: 0,
+      });
+      alert("Not Found");
+    }
+
+    if (wordGuess === correctWord) {
+      alert("You win!");
+    }
   };
 
   const onPlayerDelete = () => {
@@ -70,6 +108,8 @@ function App() {
             onPlayerEnter,
             onPlayerDelete,
             correctWord,
+            disabledLetters,
+            setDisabledLetters,
           }}
         >
           <Board />

@@ -10,7 +10,7 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        www.sarahsalvatore.com
+        www.sarah-salvatore.com
       </a>
     </footer>
   );

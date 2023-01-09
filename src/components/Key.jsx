@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { boardContext } from "../App";
 
-const Key = ({ key, className, letter }) => {
+const Key = ({ key, className, letter, disabled }) => {
   // Subscribes to context created in App.js and uses the states previously defined
   const { onPlayerLetter, onPlayerEnter, onPlayerDelete } =
     useContext(boardContext);
@@ -18,7 +18,12 @@ const Key = ({ key, className, letter }) => {
   };
 
   return (
-    <div className={className} key={key} onClick={playerSelectsLetter}>
+    <div
+      className={className}
+      key={key}
+      onClick={playerSelectsLetter}
+      id={disabled ? "disabled" : ""}
+    >
       {letter}
     </div>
   );
