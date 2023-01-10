@@ -2,6 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { boardContext } from "../App";
 import Definition from "./Definition";
 
+// NOTE FOR SARAH - PLAY AGAIN BUTTON NEEDS TO GENERATE NEW WORD, SET GAME END BACK TO FALSE AND
+// SET BOARD BACK TO THE DEFAULT BOARD
+
 const GameEndModal = () => {
   // Subscribes to context created in App.js and uses the states previously defined
   const { gameEnd, setGameEnd, correctWord } = useContext(boardContext);

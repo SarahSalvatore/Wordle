@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import RulesModal from "./components/RulesModal";
 import Header from "./components/Header";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
@@ -11,6 +12,9 @@ import "./styles/main.css";
 export const boardContext = createContext();
 
 function App() {
+  // Shows rules the first time app is open but not for consequent plays
+  const [firstGame, setFirstGame] = useState(false);
+
   // Board initial state is set to the empty default board
   const [board, setBoard] = useState(defaultBoard);
 
@@ -21,7 +25,7 @@ function App() {
   const [disabledLetters, setDisabledLetters] = useState([]);
 
   // Tracks the end of game and if the player won
-  const [gameEnd, setGameEnd] = useState({ gameOver: true, playerWon: false });
+  const [gameEnd, setGameEnd] = useState({ gameOver: false, playerWon: false });
 
   const correctWord = "right";
 
@@ -95,6 +99,8 @@ function App() {
           value={{
             board,
             setBoard,
+            firstGame,
+            setFirstGame,
             currentPlay,
             setCurrentPlay,
             onPlayerLetter,
@@ -109,7 +115,8 @@ function App() {
         >
           <Board />
           <Keyboard />
-          {gameEnd.gameOver ? <GameEndModal /> : null}
+          {firstGame && <RulesModal />}
+          {gameEnd.gameOver && <GameEndModal />}
         </boardContext.Provider>
       </section>
       <Footer />
