@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import Footer from "./components/Footer";
+import GameEndModal from "./components/GameEndModal";
 import { defaultBoard } from "./data/defaultBoard";
 import { generateWordSet } from "./data/wordSet";
 import "./styles/main.css";
@@ -16,8 +17,11 @@ function App() {
   // Represents bank of available words - inital state is empty Set
   const [wordBank, setWordBank] = useState(new Set());
 
-  // Keeps track of incorrect letters guessed so they can be grayed out on onscreen keyboard
+  // Keeps track of incorrect letters guessed so they can be grayed out on the onscreen keyboard
   const [disabledLetters, setDisabledLetters] = useState([]);
+
+  // Tracks the end of game and if the player won
+  const [gameEnd, setGameEnd] = useState({ gameOver: false, playerWon: false });
 
   const correctWord = "right";
 
@@ -53,12 +57,6 @@ function App() {
 
     // Convert current word try to string
     const wordGuess = board[currentPlay.rowPosition].join("").toLowerCase();
-
-    // let wordGuess = "";
-
-    // for (let i = 0; i < 5; i++) {
-    //   wordGuess += board[currentPlay.rowPosition][i].toLowerCase();
-    // }
 
     // Check if word guess is in the bank
     if (wordBank.has(wordGuess)) {
@@ -105,10 +103,13 @@ function App() {
             correctWord,
             disabledLetters,
             setDisabledLetters,
+            gameEnd,
+            setGameEnd,
           }}
         >
           <Board />
           <Keyboard />
+          {gameEnd.gameOver ? <GameEndModal /> : null}
         </boardContext.Provider>
       </section>
       <Footer />

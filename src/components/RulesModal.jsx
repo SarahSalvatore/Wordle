@@ -30,6 +30,8 @@ const RulesModal = () => {
         alt="Game row spelling out the word might. The M tile is not filled in and the other letter tiles are green."
       />
       <p>The letter M is not in the word in any spot.</p>
+      <hr />
+      <p>There are over 2000 WORDLES available today!</p>
     </div>
   );
 };
