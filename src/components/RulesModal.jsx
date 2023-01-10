@@ -5,7 +5,7 @@ import incorrect from "../assets/incorrect.webp";
 
 const RulesModal = () => {
   return (
-    <div>
+    <div className="modal-container">
       <button>x</button>
       <p>
         Guess the <span>WORDLE</span> in 6 tries.

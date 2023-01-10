@@ -1,0 +1,79 @@
+// Modals
+
+@use "../base/colours" as *;
+@use "../base/typography" as *;
+
+.modal-container {
+  background-color: $text;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 60dvw;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .modal-header {
+    font-size: $ls-letters;
+    text-align: center;
+  }
+
+  .modal-para,
+  .modal-para-word {
+    color: $footer;
+    font-size: $ls-lrg-para;
+    text-align: center;
+  }
+
+  .modal-para-word {
+    font-weight: $bold;
+    letter-spacing: 0.1rem;
+  }
+}
+
+hr {
+  border-top: 1px solid $footer;
+  margin: 1rem auto;
+}
+
+.definition-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.bold-small-para,
+.small-para {
+  color: $footer;
+}
+
+.bold-small-para {
+  font-weight: $bold;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+button {
+  background-color: $blue-green;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: $text;
+  cursor: pointer;
+  font-size: $ls-lrg-para;
+  width: 200px;
+  padding: 1rem;
+  transition: 0.8s;
+}
+
+button:hover {
+  background-color: $blue;
+}

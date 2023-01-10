@@ -2,9 +2,9 @@ import React from "react";
 
 const Definition = ({ partOfSpeech, definition }) => {
   return (
-    <div>
-      <p>{partOfSpeech}</p>
-      <p>{definition}</p>
+    <div className="definition-container">
+      <p className="bold-small-para">{partOfSpeech}</p>
+      <p className="small-para">{definition}</p>
     </div>
   );
 };

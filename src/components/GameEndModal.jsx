@@ -20,16 +20,40 @@ const GameEndModal = () => {
           }
         )
           .then((response) => response.json())
-          .then((definition) => setWordDefinition(definition));
+          // API returns an array of definitions based on word type (eg. noun, adj, verb)
+          .then((definition) => setWordDefinition(definition))
+          // If error, set word definition to same syntax as API response
+          .catch((error) => {
+            setWordDefinition([
+              {
+                meanings: {
+                  partOfSpeech: "error",
+                  definitions: {
+                    definition:
+                      "We're sorry, an error has occurred. Unable to provide word definition at this time.",
+                  },
+                },
+              },
+            ]);
+          });
       }
     };
     getWordDefinition();
   }, [gameEnd.gameOver, correctWord]);
 
   return (
-    <div>
-      <h3>{gameEnd.playerWon ? "You Win!" : "Game Over"}</h3>
-      <h4>{correctWord}</h4>
+    <div className="modal-container">
+      <h3 className="modal-header">
+        {gameEnd.playerWon ? "You Win!" : "Game Over!"}
+      </h3>
+      <hr />
+      <p className="modal-para">
+        {gameEnd.playerWon
+          ? "You guessed the correct word:"
+          : "The correct word was:"}
+      </p>
+      <h4 className="modal-para-word">{correctWord}</h4>
+      <hr />
       {wordDefinition &&
         wordDefinition.map((item) => {
           return (
@@ -40,7 +64,9 @@ const GameEndModal = () => {
             />
           );
         })}
-      <button>Play Again</button>
+      <div className="button-container">
+        <button>Play Again</button>
+      </div>
     </div>
   );
 };

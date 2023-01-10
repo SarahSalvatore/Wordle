@@ -21,7 +21,7 @@ function App() {
   const [disabledLetters, setDisabledLetters] = useState([]);
 
   // Tracks the end of game and if the player won
-  const [gameEnd, setGameEnd] = useState({ gameOver: false, playerWon: false });
+  const [gameEnd, setGameEnd] = useState({ gameOver: true, playerWon: false });
 
   const correctWord = "right";
 
