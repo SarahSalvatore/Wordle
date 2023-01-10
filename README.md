@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# WORDLE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/-React-blue) ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow) ![Sass](https://img.shields.io/badge/-Sass-ff69b4) ![Free Dictionary API](https://img.shields.io/badge/-Dictionary%20API-red) ![CSS](https://img.shields.io/badge/-CSS-yellowgreen) ![HTML](https://img.shields.io/badge/-HTML-blue)
 
-## Available Scripts
+![Game Screenshot](public/wordle-screenshot.jpg)
 
-In the project directory, you can run:
+## Live Demo
 
-### `npm start`
+Try it out here:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Wordle is a popular word guessing game originally created by Software Engineer, Josh Wardle. The game tasks the player with correctly selecting a random five-letter word. The player gets six tries to guess the word, and the game will provide hints along the way.
 
-### `npm test`
+## How To Play
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The game will randomly generate a word for you to guess.
+- Type in your guess for the word and press the "Enter" button.
+- You will receive the following hints on your guess:
+  1. Correct letters in their correct positions appear green.
+  2. Correct letters in the wrong position appear blue.
+  3. Incorrect letters appear grayed out on the onscreen keyboard.
+- Continue guessing until you correctly guess the word or you've exceeded 6 tries.
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Feedback on guesses, including colour coding for correct letters, almost letters and incorrect letters
+- Display of previously guessed letters
+- Unlimited play with 2000+ words available
+- Rules modal displayed at the start of a game
+- Game over modal at the end of a game displaying the word's definition
+- Responsive
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project was built using the following technologies:
 
-### `npm run eject`
+- React
+- Javascript
+- Sass/CSS
+- HTML
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Game Mechanics
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The board is comprised of a matrix of 6 arrays, each containing 5 elements.
+- Each board array represents a row on the board, and each element represents a letter position within the row.
+- A random word from the word bank is generated at the start of each game.
+- The word bank is supplied by a text file and assigned to a Set, as each value is unique and this provides a faster run time than using an array.
+- Detects onscreen keyboard clicks as well as physical keyboard clicks. Can only use letters, enter, delete, and backspace on physical keyboard.
+- Incorrect letters that have been guessed will be grayed out on the on-screen keyboard.
+- Conditional CSS classes control the color hints and take effect once a word try is completed.
+- Free Dictionary API is used to provide the word definition(s) at the end of the game.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Future Scope
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Add the letters animation
+- Add a scoreboard for the players
+- Add an option to choose the difficulty level
+- Add light/dark mode
 
-## Learn More
+## How To Run The Project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clone the project from the Github repo, open in your preferred code editor and run the following commands:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- npm install
+- npm start
 
-### Code Splitting
+## Creator
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sarah Salvatore, Full Stack Developer
+sarah.h.salvatore@gmail.com
