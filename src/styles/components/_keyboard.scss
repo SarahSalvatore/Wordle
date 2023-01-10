@@ -3,19 +3,33 @@
 @use "../base/colours" as *;
 @use "../base/typography" as *;
 
-.keyboard {
+.keyboard-container {
+  width: 90dvw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 60dvw;
-  margin: 1.5rem auto;
+  margin: 0 auto;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  margin: 1.5rem auto 3rem;
 }
 
 .keyboard-row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
   margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.keyboard-last-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
 }
 
 .key,
@@ -34,12 +48,12 @@
 .key {
   aspect-ratio: 1;
   font-size: $ls-key;
-  width: 35px;
+  // width: 35px;
 }
 
 .large-key {
   font-size: $ls-lrg-key;
-  width: 75px;
+  // width: 75px;
   padding: 0 0.5rem;
 }
 
@@ -50,4 +64,55 @@
 
 #disabled {
   background-color: $outline;
+}
+
+@media only screen and (max-width: 530px) {
+  .keyboard-container {
+    width: 100dvw;
+  }
+
+  .keyboard,
+  .keyboard-row,
+  .keyboard-last-row {
+    transform: scale(0.9);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .keyboard,
+  .keyboard-row,
+  .keyboard-last-row {
+    transform: scale(0.88);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .keyboard {
+    margin: 1.5rem 0 3rem;
+  }
+
+  .keyboard-last-row .key {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .keyboard,
+  .keyboard-row,
+  .keyboard-last-row {
+    transform: scale(0.85);
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .key,
+  .keyboard-last-row .key {
+    padding: 1rem 0.4rem;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .keyboard,
+  .keyboard-row,
+  .keyboard-last-row {
+    transform: scale(0.75);
+  }
 }

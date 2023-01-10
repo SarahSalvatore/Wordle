@@ -13,13 +13,19 @@ export const boardContext = createContext();
 
 function App() {
   // Shows rules the first time app is open but not for consequent plays
-  const [firstGame, setFirstGame] = useState(false);
+  const [firstGame, setFirstGame] = useState(true);
 
   // Board initial state is set to the empty default board
   const [board, setBoard] = useState(defaultBoard);
 
-  // Represents bank of available words - inital state is empty Set
+  // Represents bank of available words - inital state is empty Set (faster way to lookup word guesses)
   const [wordBank, setWordBank] = useState(new Set());
+
+  // Represents the word bank Set as an array (better way to generate a new random word for new game)
+  const [wordBankArray, setWordBankArray] = useState([]);
+
+  // Represents the current game's word
+  const [correctWord, setCorrectWord] = useState("");
 
   // Keeps track of incorrect letters guessed so they can be grayed out on the onscreen keyboard
   const [disabledLetters, setDisabledLetters] = useState([]);
@@ -27,18 +33,20 @@ function App() {
   // Tracks the end of game and if the player won
   const [gameEnd, setGameEnd] = useState({ gameOver: false, playerWon: false });
 
-  const correctWord = "right";
-
   // Player's initial position on the board is set to row 0 letter 0
   const [currentPlay, setCurrentPlay] = useState({
     rowPosition: 0,
     letterPosition: 0,
   });
 
-  // UseEffect to generate new word from word bank
+  // UseEffect to set word bank and generate new word from word bank upon initial render
   useEffect(() => {
     generateWordSet().then((words) => {
       setWordBank(words.wordSet);
+      setWordBankArray(words.wordArray);
+      setCorrectWord(
+        words.wordArray[Math.floor(Math.random() * words.wordArray.length)]
+      );
     });
   }, []);
 
@@ -70,11 +78,16 @@ function App() {
         letterPosition: 0,
       });
     } else {
-      alert("Not a word");
+      alert("Not a word. Delete and try again.");
     }
 
     if (wordGuess === correctWord) {
-      alert("You win!");
+      setGameEnd({ gameOver: true, playerWon: true });
+      return;
+    }
+
+    if (currentPlay.rowPosition === 5) {
+      setGameEnd({ gameOver: true, playerWon: false });
     }
   };
 
@@ -107,6 +120,8 @@ function App() {
             onPlayerEnter,
             onPlayerDelete,
             correctWord,
+            setCorrectWord,
+            wordBankArray,
             disabledLetters,
             setDisabledLetters,
             gameEnd,

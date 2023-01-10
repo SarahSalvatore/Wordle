@@ -1,16 +1,20 @@
 import React, { useContext, useState, useEffect } from "react";
+import { defaultBoard } from "../data/defaultBoard";
 import { boardContext } from "../App";
 import Definition from "./Definition";
 
-// NOTE FOR SARAH - PLAY AGAIN BUTTON NEEDS TO GENERATE NEW WORD, SET GAME END BACK TO FALSE AND
-// SET BOARD BACK TO THE DEFAULT BOARD
-
 const GameEndModal = () => {
   // Subscribes to context created in App.js and uses the states previously defined
-  const { gameEnd, setGameEnd, correctWord } = useContext(boardContext);
+  const { gameEnd, correctWord, currentPlay } = useContext(boardContext);
 
   // Holds the current words definition and displays to player at game end
   const [wordDefinition, setWordDefinition] = useState([]);
+
+  // Generates new game on Play Again button click
+  // Sets board to empty, gameEnd to false and generates new word
+  const startNewGame = () => {
+    window.location.reload(true);
+  };
 
   useEffect(() => {
     // Fetches current words definition from Free Dictionary API
@@ -52,8 +56,10 @@ const GameEndModal = () => {
       <hr />
       <p className="modal-para">
         {gameEnd.playerWon
-          ? "You guessed the correct word:"
-          : "The correct word was:"}
+          ? `You guessed the correct word in ${currentPlay.rowPosition} ${
+              currentPlay.rowPosition > 1 ? "attempts" : "attempt"
+            }`
+          : "good try, but the correct word was:"}
       </p>
       <h4 className="modal-para-word">{correctWord}</h4>
       <hr />
@@ -68,7 +74,7 @@ const GameEndModal = () => {
           );
         })}
       <div className="button-container">
-        <button>Play Again</button>
+        <button onClick={startNewGame}>Play Again</button>
       </div>
     </div>
   );

@@ -34,44 +34,46 @@ const Keyboard = () => {
   }, [handleKeyPress]);
 
   return (
-    <div className="keyboard" onKeyDown={handleKeyPress}>
-      <div className="keyboard-row">
-        {keyboard[0].map((key) => {
-          return (
-            <Key
-              key={key}
-              className="key"
-              letter={key}
-              disabled={disabledLetters.includes(key)}
-            />
-          );
-        })}
-      </div>
-      <div className="keyboard-row">
-        {keyboard[1].map((key) => {
-          return (
-            <Key
-              key={key}
-              className="key"
-              letter={key}
-              disabled={disabledLetters.includes(key)}
-            />
-          );
-        })}
-      </div>
-      <div className="keyboard-row">
-        <Key key="enter" className="large-key" letter="ENTER" />
-        {keyboard[2].map((key) => {
-          return (
-            <Key
-              key={key}
-              className="key"
-              letter={key}
-              disabled={disabledLetters.includes(key)}
-            />
-          );
-        })}
-        <Key key="delete" className="large-key" letter="DELETE" />
+    <div className="keyboard-container">
+      <div className="keyboard" onKeyDown={handleKeyPress}>
+        <div className="keyboard-row">
+          {keyboard[0].map((key) => {
+            return (
+              <Key
+                key={key}
+                className="key"
+                letter={key}
+                disabled={disabledLetters.includes(key)}
+              />
+            );
+          })}
+        </div>
+        <div className="keyboard-row">
+          {keyboard[1].map((key) => {
+            return (
+              <Key
+                key={key}
+                className="key"
+                letter={key}
+                disabled={disabledLetters.includes(key)}
+              />
+            );
+          })}
+        </div>
+        <div className="keyboard-last-row">
+          <Key key="enter" className="large-key" id="enter" letter="ENTER" />
+          {keyboard[2].map((key) => {
+            return (
+              <Key
+                key={key}
+                className="key"
+                letter={key}
+                disabled={disabledLetters.includes(key)}
+              />
+            );
+          })}
+          <Key key="delete" className="large-key" letter="DELETE" />
+        </div>
       </div>
     </div>
   );

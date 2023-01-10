@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { boardContext } from "../App";
 import correct from "../assets/correct.webp";
 import almost from "../assets/almost.webp";
@@ -6,7 +6,7 @@ import incorrect from "../assets/incorrect.webp";
 
 const RulesModal = () => {
   // Subscribes to context created in App.js and uses the states previously defined
-  const { firstGame, setFirstGame } = useContext(boardContext);
+  const { setFirstGame } = useContext(boardContext);
 
   return (
     <div className="modal-rules-container">
@@ -48,7 +48,13 @@ const RulesModal = () => {
       </p>
       <hr />
       <div className="button-container">
-        <button>Start Game</button>
+        <button
+          onClick={() => {
+            setFirstGame(false);
+          }}
+        >
+          Start Game
+        </button>
       </div>
     </div>
   );

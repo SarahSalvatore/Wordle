@@ -11,14 +11,22 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: $background;
   font-family: "Poppins", sans-serif;
   font-size: 62.5%; // Font-size 1em = 10px
+  overflow-x: hidden;
+  position: relative;
+  width: 100dvw;
 }
 
 header {
   margin: 1rem auto 1rem;
+  width: 100dvw;
 }
 
 h1 {
@@ -45,11 +53,12 @@ a:hover {
 
 footer {
   background-color: $footer;
-  width: 100dvw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   margin-top: auto;
+  margin-bottom: 0;
 }

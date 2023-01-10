@@ -7,14 +7,22 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #041b2d;
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100dvw;
 }
 
 header {
   margin: 1rem auto 1rem;
+  width: 100dvw;
 }
 
 h1 {
@@ -41,13 +49,14 @@ a:hover {
 
 footer {
   background-color: black;
-  width: 100dvw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   margin-top: auto;
+  margin-bottom: 0;
 }
 
 section {
@@ -98,19 +107,33 @@ section {
   background-color: #041b2d;
 }
 
-.keyboard {
+.keyboard-container {
+  width: 90dvw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 60dvw;
-  margin: 1.5rem auto;
+  margin: 0 auto;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  margin: 1.5rem auto 3rem;
 }
 
 .keyboard-row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
   margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.keyboard-last-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
 }
 
 .key,
@@ -129,12 +152,10 @@ section {
 .key {
   aspect-ratio: 1;
   font-size: 1.6rem;
-  width: 35px;
 }
 
 .large-key {
   font-size: 1.2rem;
-  width: 75px;
   padding: 0 0.5rem;
 }
 
@@ -147,6 +168,49 @@ section {
   background-color: #676767;
 }
 
+@media only screen and (max-width: 530px) {
+  .keyboard-container {
+    width: 100dvw;
+  }
+  .keyboard,
+.keyboard-row,
+.keyboard-last-row {
+    transform: scale(0.9);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .keyboard,
+.keyboard-row,
+.keyboard-last-row {
+    transform: scale(0.88);
+  }
+}
+@media only screen and (max-width: 450px) {
+  .keyboard {
+    margin: 1.5rem 0 3rem;
+  }
+  .keyboard-last-row .key {
+    padding: 0.2rem 0.4rem;
+  }
+  .keyboard,
+.keyboard-row,
+.keyboard-last-row {
+    transform: scale(0.85);
+  }
+}
+@media only screen and (max-width: 415px) {
+  .key,
+.keyboard-last-row .key {
+    padding: 1rem 0.4rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .keyboard,
+.keyboard-row,
+.keyboard-last-row {
+    transform: scale(0.75);
+  }
+}
 .modal-container,
 .modal-rules-container {
   background-color: white;
@@ -232,4 +296,22 @@ button:hover {
 
 .rules-img {
   max-width: 200px;
+}
+
+@media only screen and (max-width: 380px) {
+  .modal-rules-container {
+    padding: 1rem;
+  }
+  .modal-header {
+    font-size: 2rem;
+  }
+  .small-para-margin {
+    margin: 0.5rem auto;
+  }
+  .button-container {
+    margin-top: 0.5rem;
+  }
+  button {
+    padding: 0.8rem 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */
