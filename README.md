@@ -2,7 +2,7 @@
 
 ![React](https://img.shields.io/badge/-React-blue) ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow) ![Sass](https://img.shields.io/badge/-Sass-ff69b4) ![Free Dictionary API](https://img.shields.io/badge/-Dictionary%20API-red) ![CSS](https://img.shields.io/badge/-CSS-yellowgreen) ![HTML](https://img.shields.io/badge/-HTML-blue)
 
-![Game Screenshot](public/wordle-screenshot.jpg)
+![Game Screenshot](public/screenshots/wordle-screenshot.jpg)
 
 ## Live Demo
 
@@ -50,6 +50,20 @@ This project was built using the following technologies:
 - Incorrect letters that have been guessed will be grayed out on the on-screen keyboard.
 - Conditional CSS classes control the color hints and take effect once a word try is completed.
 - Free Dictionary API is used to provide the word definition(s) at the end of the game.
+
+## Screenshots
+
+### Game Start Rules Modal
+
+![Game Start Rules Modal](public/screenshots/wordle-rules.jpg)
+
+### Game Over Win Modal
+
+![Game Over Win Modal](public/screenshots/wordle-game-over-win.jpg)
+
+### Game Over Lose Modal
+
+![Game Screenshot](public/screenshots/wordle-game-over-lose.jpg)
 
 ## Future Scope
 
