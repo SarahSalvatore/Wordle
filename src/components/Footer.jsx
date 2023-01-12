@@ -6,7 +6,7 @@ const Footer = () => {
       <p>Sarah Salvatore | Full Stack Developer</p>
       <a
         className="footer-link"
-        href="https://www.w3schools.com"
+        href="https://www.sarah-salvatore.com"
         target="_blank"
         rel="noreferrer"
       >
