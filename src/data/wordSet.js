@@ -8,8 +8,9 @@ export const generateWordSet = async () => {
     .then((response) => response.text())
     .then((result) => {
       // tranforms string to array, separated by line (\n)
-      wordArray = result.split("\n");
+      wordArray = result.split(/\r?\n/);
       wordSet = new Set(wordArray);
+      console.log(wordSet);
     });
 
   return { wordSet, wordArray };
