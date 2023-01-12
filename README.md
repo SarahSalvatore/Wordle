@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-Try it out here:
+Try it out here: [PLAY ME](https://sarahsalvatore.github.io/Wordle/)
 
 ## Overview
 
