@@ -109,6 +109,14 @@
   }
 }
 
+@media only screen and (max-width: 380px) {
+  .keyboard,
+  .keyboard-row,
+  .keyboard-last-row {
+    transform: scale(0.82);
+  }
+}
+
 @media only screen and (max-width: 350px) {
   .keyboard,
   .keyboard-row,
